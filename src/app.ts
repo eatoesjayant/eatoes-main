@@ -19,6 +19,9 @@ app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 
 // Routes
 app.use('/v1', routesV1);
+app.use('/health', (_req, res) => {
+  return res.sendStatus(200);
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => next(new NotFoundError()));
